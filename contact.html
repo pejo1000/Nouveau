@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+           <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="contact_styles.css">
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <title>Nous Contacter</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+    </head>
+    <body>
+        <header class="fixed-header">
+            <div id="logo"><img src="Image/appstore-illo.svg" style="width: 60px;" alt="logo"></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="contact.html">Actualiser</a></li>
+
+                    
+                </ul>
+            </nav>
+        </header>
+        
+        <div id="background-text">
+            <h2 style="color: rgba(255, 255, 255, 0.815);">Nous vous accompagnons</h2>
+            <p style="color: rgba(255, 255, 255, 0.815);">Laissez-nous vous donner plus de détails sur nos offres. Nous avons des millions de personnes qui sont heureuses de travailler avec nous!</p>
+        </div>
+        
+        <section class="bulle-section">
+            <div class="bulle">
+                <h3>Point utile</h3>
+                <p>Nous sommes passionnés et animés par la joie de vous faire part de tous nos produits et services. Veillez donc remplir le formulaire ci-dessous en dettaillant considerablement l'objet de votre prise de contact avec nous</p>
+            </div>
+        </section>
+        
+
+        <section id="contact" >
+            <div class="container">
+                <h1>Contactez-nous <i class="fas fa-envelope"></i></h1>
+                <h2>Prenez contact avec nous</h2>
+                <p>Laissez-nous vous donner plus de détails sur nos offres. Veuillez remplir le formulaire ci-dessous. Nous avons des millions de personnes qui sont heureuses de travailler avec nous!</p>
+                <form action="mailto:pro.elysepoho@gmail.com" method="post" enctype="text/plain">
+                    <label for="nom"><i class="fas fa-user"></i> Nom :</label>
+                    <input type="text" id="nom" name="nom" required>
+
+                    <label for="email"><i class="fas fa-envelope"></i> Email :</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message"><i class="fas fa-comment"></i> Message :</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Envoyer</button>
+                </form>
+            </div>
+        </section>
+        <br>
+        <br>
+        <br>
+
+        <section id="nos-partenaires" class="contenu_par">
+            <div class="container_par">
+                <h2 style="font-size: 35px; color: rgba(83, 29, 211, 0.712);">Nos Partenaires</h2>
+                <div class="partenaires-container">
+                    <img src="Image/logo_01.png" style="width: 30px;" alt="Partenaire 1">
+                    <img src="Image/logo_02.png" style="width: 30px;" alt="Partenaire 2">
+                    <img src="Image/logo_03.png" style="width: 30px;" alt="Partenaire 3">
+                    <img src="Image/logo_04.png" style="width: 30px;" alt="Partenaire 4">
+                    <img src="Image/logo_05.png" style="width: 30px;" alt="Partenaire 5">
+                    <img src="Image/logo_06.png" style="width: 30px;" alt="Partenaire 6">
+                    
+                </div>
+                <br>
+                    <br>
+            </div>
+        </section>
+
+
+
+        <br>
+        <br>
+        <footer>
+            <div>
+                <p>&copy; 2023 PEJO Corporation. Tous droits réservés. | <a href="#">Politique de confidentialité</a></p>
+                <br>
+                <p id="para_copy">Ne manquez aucune innovation numérique, restez informé(e) et soyez à la pointe de la technologie en vous inscrivant dès maintenant à notre newsletter ! Rejoignez notre communauté de passionnés et bénéficiez d'un accès exclusif aux dernières tendances, aux nouvelles solutions numériques et aux idées novatrices. En vous inscrivant à notre newsletter, vous serez parmi les premiers à découvrir les dernières avancées dans le monde de la technologie. Recevez des informations en avant-première sur les nouvelles applications révolutionnaires, les développements de l'intelligence artificielle, les tendances en matière de réalité virtuelle et bien plus encore.
+
+                </p>
+            </div>
+        </footer>
+
+        <script src="scripts.js"></script>
+
+        <div class="loader-container">
+            <div class="loader"></div>
+            <p>PEJO CORPORATION EN CHARGEMENT...</p>
+        </div>
+
+        <script src="scripts_charge.js"></script>
+
+
+        <script src="scripts_contact.js"></script>
+    </body>
+</html>

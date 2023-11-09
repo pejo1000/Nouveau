@@ -1,0 +1,22 @@
+
+.menu-icon {
+    display: none; 
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu-links {
+    display: block;
+}
+
+
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block; 
+   
+    }
+
+    .menu-links {
+        display: none; 
+    }
+}
