@@ -1,177 +1,60 @@
 document.addEventListener("DOMContentLoaded", function () {
-    var header = document.getElementById("header");
+    const header = document.getElementById("header");
+    const body = document.body;
+    const nav = document.querySelector('nav ul');
+
+    let isAnimating = false;
+    let animationFrameId;
 
     window.addEventListener("scroll", function () {
-        if (window.scrollY > 50) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
+        if (!isAnimating) {
+            animationFrameId = requestAnimationFrame(function () {
+                header.classList.toggle("scrolled", window.scrollY > 50);
+                // handleAnimation(); // Commenté pour retirer la référence à offresContainer
+                isAnimating = false;
+            });
+            isAnimating = true;
         }
     });
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.body.classList.add("loaded");
-});
-
-function toggleMenu() {
-    var nav = document.querySelector('nav ul');
-    nav.classList.toggle('show');
-}
-
-// scripts.js
-
-function isElementInViewport(el) {
-    const rect = el.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-
-function animateBulles() {
-    const offresContainer = document.querySelector('.offres-container');
-    if (isElementInViewport(offresContainer)) {
-        offresContainer.style.opacity = '1';
-        offresContainer.style.transform = 'translateY(0)';
-    }
-}
-
-
-window.addEventListener('scroll', animateBulles);
-
-
-animateBulles();
-
-
-
-
-if (rect.top < window.innerHeight && rect.bottom >= 0) {
-    offresContainer.classList.add('reverse');
-} else {
-
-    offresContainer.classList.remove('reverse');
-}
-
-
-
-
-
-
-
-const offresContainer = document.querySelector('.offres-container');
-
-
-function handleAnimation() {
-    
-    const rect = offresContainer.getBoundingClientRect();
-
-    
-    if (rect.top < window.innerHeight && rect.bottom >= 0) {
-        offresContainer.classList.add('reverse');
-
-       
-        setTimeout(() => {
-            offresContainer.classList.remove('reverse');
-        }, 2000); 
-    }
-}
-
-
-window.addEventListener('resize', handleAnimation);
-
-
-window.addEventListener('load', handleAnimation);
-
-
-window.addEventListener('scroll', handleAnimation);
-
-
-
-
-
-
-
-
-
-// scripts.js
-
-document.addEventListener("DOMContentLoaded", function () {
-    
-    if (!document.body.classList.contains("loaded")) {
-        setTimeout(function () {
-            document.body.classList.add("loaded");
-        }, 1500); 
-    }
-
-    var header = document.getElementById("header");
-
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 50) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-    });
+    body.classList.add("loaded");
 
     function toggleMenu() {
-        var nav = document.querySelector('nav ul');
         nav.classList.toggle('show');
     }
 
-    
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-   
-    const offresContainer = document.querySelector('.offres-container');
-
-    
-    function handleAnimation() {
-        
-        const rect = offresContainer.getBoundingClientRect();
-
-        
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-            offresContainer.classList.add('reverse');
-
-          
-            setTimeout(() => {
-                offresContainer.classList.remove('reverse');
-            }, 2000); 
+    window.addEventListener('resize', function () {
+        if (!isAnimating) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(function () {
+                // handleAnimation(); // Commenté pour retirer la référence à offresContainer
+                isAnimating = false;
+            });
+            isAnimating = true;
         }
-    }
+    });
 
-   
-    window.addEventListener('scroll', handleAnimation);
+    window.addEventListener('load', function () {
+        if (!isAnimating) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(function () {
+                // handleAnimation(); // Commenté pour retirer la référence à offresContainer
+                isAnimating = false;
+            });
+            isAnimating = true;
+        }
+    });
 
-    
-    handleAnimation();
+    // Utilisation de IntersectionObserver pour les bulles
+    const observer = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // animateBulles(); // Commenté pour retirer la référence à offresContainer
+                observer.unobserve(entry.target);
+            }
+        });
+    });
 
-    
-    window.addEventListener('resize', handleAnimation);
+    // Observez la section des bulles (assurez-vous de retirer le observe si vous ne l'utilisez pas ailleurs)
+    // observer.observe(offresContainer);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
